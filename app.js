@@ -26,7 +26,12 @@ app.use('/api/movies', moviesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  next({"message": 'Invalid Request',
+    "detail": {
+      "status": 404,
+      "stack": 'Page not found'
+    }
+  });
 });
 
 // error handler
