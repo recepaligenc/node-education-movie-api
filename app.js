@@ -11,9 +11,7 @@ const usersRouter = require('./routes/users');
 const app = expressLib();
 
 const db = require('./helper/db')();
-
 const config = require('./Config');
-
 const middleware_token = require('./middleware/verify-token');
 
 app.set('api_secret_key', config.api_screet_key);
@@ -32,7 +30,6 @@ app.use('/', indexRouter);
 app.use('/api/movies', middleware_token);
 app.use('/api/movies', moviesRouter);
 app.use('/api/users', usersRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -6,6 +6,8 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "@types/chai-http": "^4.2.0",
+    "@types/express": "^4.16.1",
     "bcrypt": "^3.0.6",
     "cookie-parser": "~1.4.4",
     "debug": "^4.1.1",
@@ -13,8 +15,29 @@
     "http-errors": "^1.7.2",
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.5.9",
+    "mongoose": "^5.5.10",
     "morgan": "~1.9.1",
     "npm-run-all": "^4.1.5"
-  }
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.1.4",
+    "request": "^2.88.0"
+  },
+  "description": "Udemy üzerinde yayınlanan [\"Sıfırdan Her Yönüyle Node.JS\"](https://www.udemy.com/nodejs-egitimi/?couponCode=NDJS49MS) adlı eğitim setinde \"Express ve MongoDB ile Restful API Geliştirme Projesi\" bölümünde kullanılan repodur.",
+  "main": "Config.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/recepaligenc/node-education-movie-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/recepaligenc/node-education-movie-api/issues"
+  },
+  "homepage": "https://github.com/recepaligenc/node-education-movie-api#readme"
 }

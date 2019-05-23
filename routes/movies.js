@@ -164,8 +164,9 @@ router.post('/', (req, res, next)=> {
     */
 
     const promise =  movies.save();
-    promise.then((data)=>{
-        res.json({status: 1});
+    promise.then((updateddata)=>{
+        res.json({status: 1,
+                        _id : updateddata.id});
     }).catch((err) =>{
         res.json(err);
     });
