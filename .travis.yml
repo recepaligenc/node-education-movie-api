@@ -4,6 +4,7 @@ node_js:
   - 7
 before_install:
   - npm install
+  - npm install mocha chai chai-http
   - export NODE ENV=production
 script:
   - npm run test
