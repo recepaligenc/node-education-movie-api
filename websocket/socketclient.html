@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Socket Client</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+    <script>
+        const socket = io.connect('http://localhost:3000/');
+
+        socket.on('user', (newUser)=>{
+            console.log(newUser.name);
+            $('.users').append('<li><b>' + newUser.name +  '</b> has connected</li>');
+        });
+
+    </script>
+
+</head>
+
+<body>
+<form>
+    Message Content:<br>
+    <input type="text"  name="userName"  id="userName"></input>
+    <br>
+    <br>
+    <input type="button" value="Send Message" name="SendMessage"
+           onclick="socket.emit('new-user', {
+               name: $('#userName').val()
+                });" >
+    <br>
+    <br>
+    Received Message Content:<br>
+    <ul class="users">
+
+</form>
+</body>
+</html>
