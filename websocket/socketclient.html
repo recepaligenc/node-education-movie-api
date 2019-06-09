@@ -7,11 +7,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
     <script>
-        const socket = io.connect('http://localhost:3000/');
+        const socket = io.connect('http://localhost:3000/93creative');
 
-        socket.on('user', (newUser)=>{
-            console.log(newUser.name);
-            $('.users').append('<li><b>' + newUser.name +  '</b> has connected</li>');
+        socket.on('new join', (newUser)=>{
+            console.log(newUser.user_name);
+            $('.users').append('<li><b>' + newUser.user_name +  '</b> has connected to <b>' + newUser.room_name +  ' room</li>');
         });
 
     </script>
@@ -20,14 +20,30 @@
 
 <body>
 <form>
-    Message Content:<br>
-    <input type="text"  name="userName"  id="userName"></input>
+    UserName:<br>
+    <input type="text"  name="userName" value="Recep Ali GENÇ"  id="userName"></input>
+    <br>
+    Room Name:<br>
+    <input type="text"  name="roomName"  value="ROOMX" id="roomName"></input>
     <br>
     <br>
-    <input type="button" value="Send Message" name="SendMessage"
+    <input type="button" value="Login Room"  name="LoginRoom" id="LoginRoom"
            onclick="socket.emit('new-user', {
-               name: $('#userName').val()
-                });" >
+               user_name: $('#userName').val(),
+               room_name: $('#roomName').val()
+                });
+
+               $('#userName').attr('disabled', 'disabled');
+               $('#roomName').attr('disabled', 'disabled');
+               $('#LoginRoom').hide();
+               $('#LeaveRoom').show();
+            " >
+    <input type="button" value="Leave Room" name="LeaveRoom" id="LeaveRoom" style="display: none"  onclick="
+                socket.emit('leave-user', {
+               user_name: $('#userName').val(),
+               room_name: $('#roomName').val()
+                });
+        ">
     <br>
     <br>
     Received Message Content:<br>
