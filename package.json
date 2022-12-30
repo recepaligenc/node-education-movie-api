@@ -23,7 +23,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "request": "^2.88.0"
   },
   "description": "Udemy üzerinde yayınlanan [\"Sıfırdan Her Yönüyle Node.JS\"](https://www.udemy.com/nodejs-egitimi/?couponCode=NDJS49MS) adlı eğitim setinde \"Express ve MongoDB ile Restful API Geliştirme Projesi\" bölümünde kullanılan repodur.",
